@@ -9,3 +9,5 @@ Linux: open the console in the same directory as the .jar and run: java -jar App
 Mac: idk just somehow run it using java
 
 android: .jar files aren't made for android but you can run them using a terminal app for example:termux and open the .jar app like in Linux (most likely installing java on the terminal app is required)
+
+ios: I have no idea, but if an terminal app exists there you should be able to do it
