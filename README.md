@@ -1,6 +1,8 @@
 1.KLP stands for Kotlin Learning Projects and as the name suggests these are the projects i made for the sake of learning kotling
 
-2.to run the .jar files:
+2..jar files for the projects exist in the releases
+
+3.to run the .jar files:
 
 Windows:right click and run by java
 
