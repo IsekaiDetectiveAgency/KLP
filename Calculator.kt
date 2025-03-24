@@ -97,13 +97,11 @@ fun main() {
         if (parantezOpenings != parantezEndings) error(errorC = 6)
 
     }
-    println(mainList)
 
 
     var mainListSize = mainList.size
     var mainListNumber = 0
     var didCalculate = false
-    println(mainList)
     var parantezNum = 0
     var parantezLocationNum = 0
     var parantez0LocationNum = 0
@@ -115,48 +113,37 @@ fun main() {
                 when (mainList[mainListNumber]) {
                     "(" -> {
                         parantezNum++; parantezLocationNum = mainListNumber
-                        println("parantez opening success")
-                        println(mainList + "mainlist number is: " + mainListNumber)
                     }
                     ")" -> {
-                        println("parantez closing start")
                         mainList[parantezLocationNum] = "null"
                         mainList -= mainList[parantezLocationNum]
                         mainListNumber--
                         parantez0LocationNum = mainListNumber
                         if (parantezNum == 0) error(errorC = 7)
                         var temp = 0
-                        println("is doing parantez calculations mainList is $mainList")
                         if (parantezLocationNum > temp)do {
                             mainListCopy += mainList[0]
                             mainList[0] = "null"
                             mainList -= mainList[0]
                             temp++
                         } while (temp < parantezLocationNum)
-                        println("did 1 out of 2 calculations mainListCopy is $mainListCopy and mainList is $mainList")
                         mainList[parantez0LocationNum -temp] = "null"
-                        println("did null mainList is $mainList size is ${mainList.size} parantezNum is ${parantez0LocationNum -temp}")
                         mainList -= mainList[parantez0LocationNum -temp]
-                        println("did remove null mainList is $mainList size is ${mainList.size} parantezNum is ${parantez0LocationNum -temp}")
                         temp = parantez0LocationNum -temp
 
                        if (temp < mainList.size) do {
                             mainListCopy0 += mainList[temp]
                             mainList[temp] = "null"
                             mainList -= mainList[temp]
-                            println("doing 2 out of 2 stuff size is ${mainList.size} temp is $temp")
                         } while (temp < mainList.size)
-                        println("did 2 out of 2 calculations mainListCopy0 is $mainListCopy0 and mainList is $mainList")
                         isDoingParantez = true
                         parantezOpenings--
                         parantezEndings--
                     }
 
                 }
-                println("got heere mainList number is: $mainListNumber")
                 mainListNumber ++
             }while (!isDoingParantez)
-            println("got here")
         mainListSize = mainList.size
 
         mainListNumber = 0
@@ -191,19 +178,15 @@ fun main() {
             }
             mainListNumber++
         } while (mainListSize > mainListNumber)
-        println("parantez is $parantez $mainList last parantez is $lastparantez parantez openings is $parantezOpenings parantez endings is $parantezEndings")
         if (mainList.size > 1)do {
             val temp = mainList[0].toBigInteger() + mainList[1].toBigInteger()
             mainList[0] = temp.toString()
             mainList[1] = "null"
             mainList -= mainList[1]
         } while (mainList.size > 1)
-        println(mainList[0])
-        println("loooooooooooooooooooooooooooooooooooooooooooooooooooool $mainList $mainListCopy")
         if (isDoingParantez){
             val mainListCopySize = mainListCopy.size
             if (mainListCopySize > 0){
-                println("copy is  ${mainListCopy[mainListCopySize -1]} main is $mainList full copy is $mainListCopy int or null is ${mainListCopy[mainListCopySize -1].toBigIntegerOrNull()}")
                 if (mainListCopy[mainListCopySize -1].toBigIntegerOrNull() != null){val temp0 = mainListCopy[mainListCopySize -1].toBigInteger() * mainList[0].toBigInteger()
             mainListCopy[mainListCopySize -1] = "null"
             mainListCopy -= mainListCopy[mainListCopySize -1]
@@ -227,17 +210,12 @@ fun main() {
                     mainListCopy -= mainListCopy[mainListCopySize -2]
                     mainList[0] = temp0.toString()}
             }}
-            println("parantez detected adding values back")
             mainListCopy += mainList[0]
             mainListCopy += mainListCopy0
-            println("added values back after parantez they are = $mainListCopy")
             mainList -= mainList
-            println("mainList got cleared mainList is $mainList")
             mainList += mainListCopy
-            println("added mainListCopied values back to mainList mainList is $mainList")
             mainListCopy -= mainListCopy
             mainListCopy0 -= mainListCopy0
-            println("cleared mainListCopy and mainListCopy0 mainListCopy: $mainListCopy mainListCopy0: $mainListCopy0")
             isDoingParantez = false
             if (lastparantez)parantez = false
             if (parantezOpenings == 0 && parantezEndings == 0)lastparantez = true
@@ -246,9 +224,7 @@ fun main() {
         if (lastparantez && mainList.size == 1)parantez = false
     }while(parantez)
     println(mainList[0])
-    println("parantez is $parantez")
 }
 fun error(errorC: Byte){
-    println("wrong format")
     exitProcess(errorC.toInt())
 }
